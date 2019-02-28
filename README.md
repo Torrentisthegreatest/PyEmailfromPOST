@@ -6,7 +6,7 @@ Set it up by changing the config.py file, only change the right fields in the di
 
 Make sure to have your form action to "yourhost/submit" with the method POST.
 
-
+---
 Copyright (C) 2019  Simon Weizman
 
 This file is a part of PyEmailfromPOST
