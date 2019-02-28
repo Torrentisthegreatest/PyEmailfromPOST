@@ -24,4 +24,7 @@ class Config():
   "password": ""
   "sitename": ""
   }
+  host = "0.0.0.0" #Default is 0.0.0.0 which is the same as localhost
+  port = 8080 #Default is 8080
+  
  config = Config()
