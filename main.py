@@ -44,14 +44,15 @@ Message:
 	with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
 		server.login(sender_email, password)
 		server.sendmail(sender_email, receiver_email, message)
-
+	
+	redirsitename = '"'+config.sitename+'"'
 
 	return """"
 			<meta charset="UTF-8">
 			<meta http-equiv="refresh" content="0; url=/">
 			<script type="text/javascript">
-				window.location.href = "https://simon.weizman.us#Contact"
-			</script>"""
+				window.location.href = %s
+			</script>""" $ (redirsitename)
 
 @app.route('/')
 def home():
@@ -67,4 +68,4 @@ def mainpage():
 		return sendemail(submittedemail, submittedsubject, submittedmsg, submittedname)
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0',port=8080,debug = True)
+	app.run(host=config.host,port=config.port,debug = True)
