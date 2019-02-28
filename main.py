@@ -17,16 +17,17 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import smtplib, ssl, os
+from config import config
 from flask import Flask, request
 app = Flask(__name__)
 
 def sendemail(submittedemail, submittedsubject, submittedmsg, submittedname):
 	port = 465
-	sitename = str(os.environ.get("sitename"))
-	smtp_server = str(os.environ.get("smtpserver"))
-	sender_email = str(os.environ.get("senderemail"))
-	receiver_email = str(os.environ.get("receiveremail"))
-	password = str(os.environ.get("password"))
+	sitename = config.emailconfig["sitename"]
+	smtp_server = config.emailconfig["smtpserver"]
+	sender_email = config.emailconfig["senderemail"]
+	receiver_email = config.emailconfig["receiveremail"]
+	password = config.emailconfig["password"]
 	message = """From: %s
 To: %s
 Reply-To: %s
